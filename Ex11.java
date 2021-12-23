@@ -12,6 +12,5 @@ public class Ex11 {
 	            if(a<x)System.out.print(a +" ");
 	         }
 	      }
-	   }
 	}
 }
