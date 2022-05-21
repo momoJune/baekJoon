@@ -1,34 +1,28 @@
-package green.kr.ca.Hello;
+package beak;
 
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
+//문제 : https://www.acmicpc.net/problem/2231
+import java.util.Scanner;
 
 public class Ex21 {
 	public static void main(String[] args) {
-		HashSet<Integer> self = new HashSet<Integer>();
+		Scanner sc = new Scanner(System.in);
+		int N = sc.nextInt();
+		String str = "";
+		int temp = 0;
 		
-		for(int i =1; i<=10000;i++) {
-			self.add(i);
-		}
-		for(int i =1; i<=10000;i++) {
-			if(self.contains(d(i))){
-				self.remove(d(i));
+		for(int i = 1; i<=N;i++) {
+			temp = i;
+			str = Integer.toString(i);
+			String[] strList = str.split("");
+			for(String s : strList ) {
+				temp += Integer.parseInt(s);
 			}
+			if(temp==N) {
+				System.out.println(i);
+				break;
+			}
+			if(i==N)System.out.println(0);
+			temp = 0;
 		}
-		Iterator<Integer> iter = self.iterator();
-		while(iter.hasNext())System.out.println(iter.next());
 	}
-
-
-	static int d(int n) {
-		int sum = 0;
-		sum += n;
-		String str = n + "";
-		for (char chr : str.toCharArray()) {
-			sum += chr - '0';
-		}
-		return sum;
-	}
-
 }
